@@ -25,7 +25,7 @@
 1. Clone the repo into local machine
 
 ```
-git clone git@github.com:AlviGeo/mhs-library-react-firebase.git
+git@github.com:AlviGeo/backend-nodejs.git
 ```
 
 2. Install npm
@@ -43,8 +43,6 @@ npm start
 <p align="right">(<a href="#top">back to table of contents</a>)</p>
 
 ## Environment Variables
-
-The MHS Library service configuration file is written using .env. This file should be in the src folder with a complete sample file like the following.
 
 ```env
 #filename: .env
