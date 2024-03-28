@@ -1,25 +1,27 @@
 // Import JWT
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 // Import Model
-const db = require("../models");
-const User = db.User;
+const db = require('../models');
 
-const { SECRET_TOKEN, SECRET_EXPIRED } = process.env;
+const { User } = db;
+
+const { SECRET_TOKEN } = process.env;
 
 // Middleware to verify JWT token
+// eslint-disable-next-line consistent-return
 const verifyToken = async (req, res, next) => {
   const { id } = req.body;
 
   try {
     const token = await User.findOne({
-      where: { id: id },
-      attributes: ["access_token"],
+      where: { id },
+      attributes: ['access_token'],
     });
     if (!token) {
       return res.status(400).json({
-        status: "error",
-        message: "Please log in first!",
+        status: 'error',
+        message: 'Please log in first!',
       });
     }
 
@@ -27,13 +29,13 @@ const verifyToken = async (req, res, next) => {
     if (!decoded) {
       return res
         .status(401)
-        .json({ status: "error", message: "Invalid token." });
+        .json({ status: 'error', message: 'Invalid token.' });
     }
 
     req.user = decoded.data;
     next();
   } catch (err) {
-    return res.status(401).json({ status: "error", message: "Invalid token" });
+    return res.status(401).json({ status: 'error', message: 'Invalid token' });
   }
 };
 

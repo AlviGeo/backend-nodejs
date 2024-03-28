@@ -5,10 +5,10 @@ const jwt = require('jsonwebtoken');
 const Validator = require('fastest-validator');
 
 const v = new Validator();
-const bcrypt = require('bcrypt');
-const userValidator = require('./validator/user.validator');
 
 // Bcrypt Password
+const bcrypt = require('bcrypt');
+const userValidator = require('./validator/user.validator');
 
 // Import Model
 const db = require('../../models');
