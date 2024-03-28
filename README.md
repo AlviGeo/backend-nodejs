@@ -54,8 +54,9 @@ SECRET_EXPIRED=""
 
 <p align="right">(<a href="#top">back to table of contents</a>)</p>
 
-## Postman Documentation File
+## Postman & MySQLDocumentation File
 
-You can find the postman's JSON in this project.
+You can find the postman's & MySQL File in this project.
+For MySQL can use both migration/import using file.
 
 <p align="right">(<a href="#top">back to table of contents</a>)</p>
