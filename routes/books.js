@@ -6,7 +6,7 @@ const bookController = require('../controllers/books');
 const verifyToken = require('../middleware/token');
 
 /* GET Book by ID */
-router.get('/:bookId', bookController.getById);
+router.get('/:bookId', verifyToken, bookController.getById);
 
 /* GET All Books */
 router.get('/', verifyToken, bookController.getAll);
