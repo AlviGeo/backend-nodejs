@@ -1,17 +1,20 @@
 // Import Model
-const db = require("../../models");
-const Book = db.Book;
+const db = require('../../models');
+
+const { Book } = db;
 
 const create = async (req, res) => {
   const { id } = req.user;
-  const { book_title, book_author, book_description, book_year } = req.body;
+  const {
+    bookTitle, bookAuthor, bookDescription, bookYear,
+  } = req.body;
 
   try {
     const payload = {
-      book_title,
-      book_author,
-      book_description,
-      book_year,
+      bookTitle,
+      bookAuthor,
+      bookDescription,
+      bookYear,
       user_id: id,
     };
 
@@ -20,20 +23,20 @@ const create = async (req, res) => {
 
     if (!insertBook) {
       return res.status(400).json({
-        status: "error",
-        message: "Failed to create book",
+        status: 'error',
+        message: 'Failed to create book',
       });
     }
 
     return res.status(201).json({
-      status: "success",
-      message: "Successfully Created!",
+      status: 'success',
+      message: 'Successfully Created!',
       data: insertBook,
     });
   } catch (err) {
     return res.status(500).json({
-      status: "error",
-      message: "Internal server error",
+      status: 'error',
+      message: 'Internal server error',
     });
   }
 };

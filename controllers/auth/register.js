@@ -1,14 +1,16 @@
 // Fastest Validator
-const Validator = require("fastest-validator");
+const Validator = require('fastest-validator');
+
 const v = new Validator();
-const userValidator = require("./validator/user.validator");
+const bcrypt = require('bcrypt');
+const userValidator = require('./validator/user.validator');
 
 // Bcrypt Password
-const bcrypt = require("bcrypt");
 
 // Import Model
-const db = require("../../models");
-const User = db.User;
+const db = require('../../models');
+
+const { User } = db;
 
 const register = async (req, res) => {
   try {
@@ -20,7 +22,7 @@ const register = async (req, res) => {
     // Message Validate
     if (validateRegister.length) {
       return res.status(400).json({
-        status: "error",
+        status: 'error',
         message: validateRegister,
       });
     }
@@ -28,14 +30,14 @@ const register = async (req, res) => {
     // Check Email
     const user = await User.findOne({
       where: {
-        email: email,
+        email,
       },
     });
 
     if (user) {
       return res.status(400).json({
-        status: "error",
-        message: "Email already exists. Please choose a different email.",
+        status: 'error',
+        message: 'Email already exists. Please choose a different email.',
       });
     }
 
@@ -43,7 +45,7 @@ const register = async (req, res) => {
     const passwordHash = await bcrypt.hash(password, 10);
 
     const userData = {
-      email: email,
+      email,
       password: passwordHash,
     };
 
@@ -52,19 +54,19 @@ const register = async (req, res) => {
 
     if (!insertUser) {
       return res.status(500).json({
-        status: "error",
-        message: "Failed to register user. Please check your data again.",
+        status: 'error',
+        message: 'Failed to register user. Please check your data again.',
       });
     }
 
     return res.status(201).json({
-      status: "success",
-      message: "Successfully registered!",
+      status: 'success',
+      message: 'Successfully registered!',
     });
   } catch (err) {
     return res.status(500).json({
-      status: "error",
-      message: "Internal server error",
+      status: 'error',
+      message: 'Internal server error',
     });
   }
 };

@@ -1,6 +1,7 @@
 // Import Model
-const db = require("../../models");
-const Book = db.Book;
+const db = require('../../models');
+
+const Book = db;
 
 const deleteBook = async (req, res) => {
   const { bookId } = req.params;
@@ -13,21 +14,21 @@ const deleteBook = async (req, res) => {
     });
     if (!findBook) {
       return res.status(400).json({
-        status: "error",
-        message: "Book Not Found!",
+        status: 'error',
+        message: 'Book Not Found!',
       });
     }
 
-    const deleteBook = await Book.destroy({ where: { id: bookId } });
+    const destroyBook = await Book.destroy({ where: { id: bookId } });
     return res.status(200).json({
-      status: "success",
-      message: "Book Successfully Deleted!",
-      data: deleteBook,
+      status: 'success',
+      message: 'Book Successfully Deleted!',
+      data: destroyBook,
     });
   } catch (err) {
     return res.status(500).json({
-      status: "error",
-      message: "Internal server error",
+      status: 'error',
+      message: 'Internal server error',
     });
   }
 };

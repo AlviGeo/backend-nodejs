@@ -1,29 +1,31 @@
-const db = require("../../models");
-const User = db.User;
-
 // Fastest Validator
-const Validator = require("fastest-validator");
-const v = new Validator();
-const userValidator = require("./validator/user.validator");
+const Validator = require('fastest-validator');
 
 // Bcrypt Password
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcrypt');
+
+const db = require('../../models');
+
+const { User } = db;
+
+const v = new Validator();
+const userValidator = require('./validator/user.validator');
 
 const resetPassword = async (req, res) => {
   try {
     const { id } = req.user;
-    const { password, new_password } = req.body;
+    const { password, newPassword } = req.body;
 
     // Validate Change Pass Requirement
     const validateResetPass = v.validate(
       req.body,
-      userValidator.reset_password
+      userValidator.reset_password,
     );
 
     // Error Message if Validate Failed
     if (validateResetPass.length) {
       return res.status(400).json({
-        status: "error",
+        status: 'error',
         message: validateResetPass,
       });
     }
@@ -32,32 +34,31 @@ const resetPassword = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json({ status: "error", message: "User not found" });
+        .json({ status: 'error', message: 'User not found' });
     }
 
     const isValidPass = await bcrypt.compare(password, user.password);
     if (!isValidPass) {
       return res.status(400).json({
-        status: "error",
-        message: "Wrong Password!",
+        status: 'error',
+        message: 'Wrong Password!',
       });
     }
 
-    const passHash = await bcrypt.hash(new_password, 10);
+    const passHash = await bcrypt.hash(newPassword, 10);
 
     await User.update(
       { password: passHash },
       {
         where: { id: user.id },
-      }
+      },
     );
 
     return res.json({
-      status: "success",
-      message: "Your password has been updated.",
+      status: 'success',
+      message: 'Your password has been updated.',
     });
   } catch (err) {
-    console.log(err.message);
     return err.message;
   }
 };

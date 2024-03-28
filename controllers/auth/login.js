@@ -1,17 +1,19 @@
 // Access Token
-const jwt = require("jsonwebtoken");
+const jwt = require('jsonwebtoken');
 
 // Fastest Validator
-const Validator = require("fastest-validator");
+const Validator = require('fastest-validator');
+
 const v = new Validator();
-const userValidator = require("./validator/user.validator");
+const bcrypt = require('bcrypt');
+const userValidator = require('./validator/user.validator');
 
 // Bcrypt Password
-const bcrypt = require("bcrypt");
 
 // Import Model
-const db = require("../../models");
-const User = db.User;
+const db = require('../../models');
+
+const { User } = db;
 
 // Variable for Token
 const { SECRET_TOKEN, SECRET_EXPIRED } = process.env;
@@ -26,7 +28,7 @@ const login = async (req, res) => {
     // Error Message if Validate Failed
     if (validateLogin.length) {
       return res.status(400).json({
-        status: "error",
+        status: 'error',
         message: validateLogin,
       });
     }
@@ -39,8 +41,8 @@ const login = async (req, res) => {
     });
     if (!user) {
       return res.status(400).json({
-        status: "error",
-        message: "Email is Wrong!",
+        status: 'error',
+        message: 'Email is Wrong!',
       });
     }
 
@@ -48,15 +50,15 @@ const login = async (req, res) => {
     const isValidPass = await bcrypt.compare(password, user.password);
     if (!isValidPass) {
       return res.status(400).json({
-        status: "error",
-        message: "Wrong Password",
+        status: 'error',
+        message: 'Wrong Password',
       });
     }
 
     // Payload for generate token
     const data = await User.findOne({
       where: { id: user.id },
-      attributes: ["id", "email"],
+      attributes: ['id', 'email'],
     });
 
     // Generate Access Token
@@ -67,13 +69,13 @@ const login = async (req, res) => {
     // Store token in localStorage
     await User.update(
       { access_token: accessToken },
-      { where: { id: user.id } }
+      { where: { id: user.id } },
     );
 
-    return res.json({ status: "success", token: accessToken });
+    return res.json({ status: 'success', token: accessToken });
   } catch (err) {
     return res.status(500).json({
-      status: "error",
+      status: 'error',
       message: err.message,
     });
   }

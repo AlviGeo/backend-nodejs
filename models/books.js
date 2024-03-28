@@ -1,8 +1,6 @@
-"use strict";
-
 module.exports = (sequelize, DataTypes) => {
   const Book = sequelize.define(
-    "Book",
+    'Book',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -34,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "Books",
+      tableName: 'Books',
       timestamps: true,
     }
   );

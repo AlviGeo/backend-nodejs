@@ -1,5 +1,6 @@
-const db = require("../../models");
-const User = db.User;
+const db = require('../../models');
+
+const { User } = db;
 
 const logout = async (req, res) => {
   try {
@@ -9,7 +10,7 @@ const logout = async (req, res) => {
     if (!user) {
       return res
         .status(404)
-        .json({ status: "error", message: "User not found" });
+        .json({ status: 'error', message: 'User not found' });
     }
 
     // Remove token from user record
@@ -17,22 +18,22 @@ const logout = async (req, res) => {
       { access_token: null },
       {
         where: { id: user.id },
-      }
+      },
     );
-    if (!user) {
+    if (!removeAccessToken) {
       return res
         .status(404)
-        .json({ status: "error", message: "Token failed to remove" });
+        .json({ status: 'error', message: 'Token failed to remove' });
     }
 
     return res.json({
-      status: "success",
-      message: "User successfully logged out ",
+      status: 'success',
+      message: 'User successfully logged out ',
     });
   } catch (err) {
     return res
       .status(500)
-      .json({ status: "error", message: "Internal server error" });
+      .json({ status: 'error', message: 'Internal server error' });
   }
 };
 

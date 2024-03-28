@@ -1,18 +1,21 @@
 // Import Model
-const db = require("../../models");
-const Book = db.Book;
+const db = require('../../models');
+
+const Book = db;
 
 const edit = async (req, res) => {
   const { id } = req.user;
   const { bookId } = req.params;
-  const { book_title, book_author, book_description, book_year } = req.body;
+  const {
+    bookTitle, bookAuthor, bookDescription, bookYear,
+  } = req.body;
 
   try {
     const payload = {
-      book_title,
-      book_author,
-      book_description,
-      book_year,
+      bookTitle,
+      bookAuthor,
+      bookDescription,
+      bookYear,
       user_id: id,
     };
 
@@ -23,8 +26,8 @@ const edit = async (req, res) => {
     });
     if (!findBook) {
       return res.status(400).json({
-        status: "error",
-        message: "Book Not Found!",
+        status: 'error',
+        message: 'Book Not Found!',
       });
     }
 
@@ -35,14 +38,14 @@ const edit = async (req, res) => {
     });
 
     return res.status(200).json({
-      status: "success",
-      message: "Book Successfully Updated!",
+      status: 'success',
+      message: 'Book Successfully Updated!',
       data: updateBook,
     });
   } catch (err) {
     return res.status(500).json({
-      status: "error",
-      message: "Internal server error",
+      status: 'error',
+      message: 'Internal server error',
     });
   }
 };

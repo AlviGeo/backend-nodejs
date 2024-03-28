@@ -1,8 +1,6 @@
-"use strict";
-
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "User",
+    'User',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -26,20 +24,10 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
     {
-      tableName: "users",
+      tableName: 'users',
       timestamps: true,
-    }
+    },
   );
-
-  //   User.associate = function (models) {
-  //     User.hasMany(models.Book, {
-  //       foreignKey: {
-  //         name: "id_user",
-  //         type: DataTypes.INTEGER,
-  //         allowNull: false,
-  //       },
-  //     });
-  //   };
 
   return User;
 };

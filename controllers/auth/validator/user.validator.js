@@ -1,25 +1,28 @@
-const Validator = require("fastest-validator");
+// eslint-disable-next-line no-unused-vars
+const Validator = require('fastest-validator');
 
-/*validator for register*/
+/* validator for register */
 const register = {
-  email: { type: "email", empty: false },
-  password: { type: "string", min: 6, max: 25, empty: false },
+  email: { type: 'email', empty: false },
+  password: {
+    type: 'string', min: 6, max: 25, empty: false,
+  },
 };
 
-/*validator for login*/
+/* validator for login */
 const login = {
-  email: { type: "email", empty: false },
-  password: { type: "string", min: 6, empty: false },
+  email: { type: 'email', empty: false },
+  password: { type: 'string', min: 6, empty: false },
 };
 
-/*validator for reset password*/
-const reset_password = {
-  password: { type: "string", min: 6, optional: false },
-  new_password: { type: "equal", field: "password", optional: false },
+/* validator for reset password */
+const resetPassword = {
+  password: { type: 'string', min: 6, optional: false },
+  newPassword: { type: 'equal', field: 'password', optional: false },
 };
 
 module.exports = {
   register,
   login,
-  reset_password,
+  resetPassword,
 };
