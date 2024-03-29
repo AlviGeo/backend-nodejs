@@ -1,7 +1,7 @@
 // Import Model
 const db = require('../../models');
 
-const Book = db;
+const { Book } = db;
 
 const deleteBook = async (req, res) => {
   const { bookId } = req.params;

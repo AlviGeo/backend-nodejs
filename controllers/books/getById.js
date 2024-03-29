@@ -1,7 +1,7 @@
 // Import Model
 const db = require('../../models');
 
-const Book = db;
+const { Book } = db;
 
 const getById = async (req, res) => {
   try {
@@ -16,6 +16,7 @@ const getById = async (req, res) => {
         'bookYear',
       ],
     });
+
     if (!book) {
       return res
         .status(404)

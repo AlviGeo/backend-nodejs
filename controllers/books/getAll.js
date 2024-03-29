@@ -1,7 +1,7 @@
 // Import Model
 const db = require('../../models');
 
-const Book = db;
+const { Book } = db;
 
 const getAll = async (req, res) => {
   try {
