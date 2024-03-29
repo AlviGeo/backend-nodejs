@@ -9,24 +9,24 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         unique: true,
       },
-      book_title: {
+      bookTitle: {
         type: DataTypes.STRING(255),
         allowNull: false,
         unique: true,
       },
-      book_author: {
+      bookAuthor: {
         type: DataTypes.STRING(255),
         allowNull: false,
       },
-      book_description: {
+      bookDescription: {
         type: DataTypes.STRING(255),
         allowNull: true,
       },
-      book_year: {
+      bookYear: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
-      user_id: {
+      userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
       },
@@ -34,7 +34,7 @@ module.exports = (sequelize, DataTypes) => {
     {
       tableName: 'Books',
       timestamps: true,
-    }
+    },
   );
 
   return Book;

@@ -15,7 +15,7 @@ const create = async (req, res) => {
       bookAuthor,
       bookDescription,
       bookYear,
-      user_id: id,
+      userId: id,
     };
 
     // Insert User to DB

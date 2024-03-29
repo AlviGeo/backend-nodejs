@@ -8,19 +8,19 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      book_title: {
+      bookTitle: {
         type: Sequelize.STRING,
       },
-      book_author: {
+      bookAuthor: {
         type: Sequelize.STRING,
       },
-      book_description: {
+      bookDescription: {
         type: Sequelize.STRING,
       },
-      book_year: {
+      bookYear: {
         type: Sequelize.STRING,
       },
-      user_id: {
+      userId: {
         type: Sequelize.INTEGER,
       },
       createdAt: {

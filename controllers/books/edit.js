@@ -1,7 +1,7 @@
 // Import Model
 const db = require('../../models');
 
-const Book = db;
+const { Book } = db;
 
 const edit = async (req, res) => {
   const { id } = req.user;
@@ -16,7 +16,7 @@ const edit = async (req, res) => {
       bookAuthor,
       bookDescription,
       bookYear,
-      user_id: id,
+      userId: id,
     };
 
     const findBook = await Book.findOne({

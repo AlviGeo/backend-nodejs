@@ -19,7 +19,7 @@ const resetPassword = async (req, res) => {
     // Validate Change Pass Requirement
     const validateResetPass = v.validate(
       req.body,
-      userValidator.reset_password,
+      userValidator.resetPassword,
     );
 
     // Error Message if Validate Failed
@@ -27,6 +27,13 @@ const resetPassword = async (req, res) => {
       return res.status(400).json({
         status: 'error',
         message: validateResetPass,
+      });
+    }
+
+    if (password === newPassword) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'Your new password cannot be the same as your current password.',
       });
     }
 

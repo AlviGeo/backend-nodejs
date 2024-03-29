@@ -16,7 +16,7 @@ const verifyToken = async (req, res, next) => {
   try {
     const token = await User.findOne({
       where: { id },
-      attributes: ['access_token'],
+      attributes: ['accessToken'],
     });
     if (!token) {
       return res.status(400).json({
@@ -25,7 +25,7 @@ const verifyToken = async (req, res, next) => {
       });
     }
 
-    const decoded = jwt.verify(token.access_token, SECRET_TOKEN);
+    const decoded = jwt.verify(token.accessToken, SECRET_TOKEN);
     if (!decoded) {
       return res
         .status(401)

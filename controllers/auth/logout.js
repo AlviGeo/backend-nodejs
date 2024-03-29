@@ -15,7 +15,7 @@ const logout = async (req, res) => {
 
     // Remove token from user record
     const removeAccessToken = await User.update(
-      { access_token: null },
+      { accessToken: null },
       {
         where: { id: user.id },
       },
