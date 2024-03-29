@@ -18,7 +18,7 @@ const login = {
 /* validator for reset password */
 const resetPassword = {
   password: { type: 'string', min: 6, optional: false },
-  newPassword: { type: 'equal', field: 'password', optional: false },
+  newPassword: { type: 'string', min: 6, optional: false },
 };
 
 module.exports = {

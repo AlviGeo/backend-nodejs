@@ -40,18 +40,18 @@ const login = async (req, res) => {
       },
     });
     if (!user) {
-      return res.status(400).json({
+      return res.status(401).json({
         status: 'error',
-        message: 'Email is Wrong!',
+        message: 'Email or Password is Wrong!',
       });
     }
 
     // Check if the password is same with the DB
     const isValidPass = await bcrypt.compare(password, user.password);
     if (!isValidPass) {
-      return res.status(400).json({
+      return res.status(401).json({
         status: 'error',
-        message: 'Wrong Password',
+        message: 'Email or Password is Wrong!',
       });
     }
 
@@ -68,11 +68,11 @@ const login = async (req, res) => {
 
     // Store token in localStorage
     await User.update(
-      { access_token: accessToken },
+      { accessToken },
       { where: { id: user.id } },
     );
 
-    return res.json({ status: 'success', token: accessToken });
+    return res.status(200).json({ status: 'success', accessToken });
   } catch (err) {
     return res.status(500).json({
       status: 'error',
