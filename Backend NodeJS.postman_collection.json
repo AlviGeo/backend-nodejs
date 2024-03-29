@@ -34,7 +34,84 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alvi@gmail.com\",\n    \"password\": \"Test1234!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7ImlkIjozLCJlbWFpbCI6ImFsdmlAZ21haWwuY29tIn0sImlhdCI6MTcxMTcyODUxNiwiZXhwIjoxNzExODE0OTE2fQ.whW4LI1_2HO0qptq0O084Pcn8qlbmo0O-gRT30Yv_Mo\"\n}"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alvi@gmail.com\",\n    \"password\": \"Test1234\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/login",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Email or Password is Wrong!\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Register",
@@ -43,7 +120,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"email\": \"alvi1@gmail.com\",\n    \"password\": \"Test1234!\"\n}",
+							"raw": "{\n    \"email\": \"alvi@gmail.com\",\n    \"password\": \"Test1234!\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -61,7 +138,76 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alvi2@gmail.com\",\n    \"password\": \"Test1234!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Successfully registered!\"\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"email\": \"alvi2@gmail.com\",\n    \"password\": \"Test1234!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/register",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"register"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Email already exists. Please choose a different email.\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Logout",
@@ -88,16 +234,93 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/logout",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"User successfully logged out \"\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/logout",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"logout"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Please log in first!\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Reset Password",
 					"request": {
-						"method": "POST",
+						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 3,\n    \"password\": \"Test123!\",\n    \"newPassword\": \"Test1234!\"\n}",
+							"raw": "{\n    \"id\": 7,\n    \"password\": \"Test1234!\",\n    \"newPassword\": \"Test123!\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -105,17 +328,170 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/reset-password",
+							"raw": "localhost:8080/resetPassword",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"reset-password"
+								"resetPassword"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"password\": \"Test1234!\",\n    \"newPassword\": \"Test123!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/reset-password",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"reset-password"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Please log in first!\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"password\": \"Test1234\",\n    \"newPassword\": \"Test1235!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/reset-password",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"reset-password"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Your password has been updated.\"\n}"
+						},
+						{
+							"name": "401",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"password\": \"Test1234\",\n    \"newPassword\": \"Test1235!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/resetPassword",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"resetPassword"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Wrong Password!\"\n}"
+						},
+						{
+							"name": "400",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 4,\n    \"password\": \"Test1234\",\n    \"newPassword\": \"Test1235!\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/resetPassword",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"resetPassword"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Your new password cannot be the same as your current password.\"\n}"
+						}
+					]
 				}
 			]
 		},
@@ -129,7 +505,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"book_title\": \"To Kill a Mockingbird\",\n    \"book_author\": \"Harper Lee\",\n    \"book_description\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n    \"book_year\": 1960,\n    \"id\": 3\n}",
+							"raw": "{\n    \"bookTitle\": \"To Kill a Mockingbird\",\n    \"bookAuthor\": \"Harper Lee\",\n    \"bookDescription\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n    \"bookYear\": 1960,\n    \"id\": 7\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -147,7 +523,84 @@
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookTitle\": \"To Kill a Mockingbird\",\n    \"bookAuthor\": \"Harper Lee\",\n    \"bookDescription\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n    \"bookYear\": 1960,\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Please log in first!\"\n}"
+						},
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookTitle\": \"To Kill a Mockingbird\",\n    \"bookAuthor\": \"Harper Lee\",\n    \"bookDescription\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n    \"bookYear\": 1960,\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Successfully Created!\",\n    \"data\": {\n        \"id\": 6,\n        \"bookTitle\": \"To Kill a Mockingbird\",\n        \"bookAuthor\": \"Harper Lee\",\n        \"bookDescription\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n        \"bookYear\": 1960,\n        \"userId\": 7,\n        \"updatedAt\": \"2024-03-29T16:33:27.551Z\",\n        \"createdAt\": \"2024-03-29T16:33:27.551Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Edit Book",
@@ -156,7 +609,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"book_title\": \"To Kill a Mockingbirds\",\n    \"book_author\": \"Harper Lee\",\n    \"book_description\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n    \"book_year\": 1960,\n    \"id\": 3\n}",
+							"raw": "{\n    \"bookTitle\": \"To Kill a Mockingbirds\",\n    \"bookAuthor\": \"Harper Lee\",\n    \"book_description\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n    \"bookDescription\": 1960,\n    \"id\": 7\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -164,18 +617,97 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/book/2",
+							"raw": "localhost:8080/book/6",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"book",
-								"2"
+								"6"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookTitle\": \"To Kill a Mockingbirds\",\n    \"bookAuthor\": \"Harper Lee\",\n    \"book_description\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n    \"bookDescription\": 1960,\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Book Successfully Updated!\",\n    \"data\": [\n        1\n    ]\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"bookTitle\": \"To Kill a Mockingbirds\",\n    \"bookAuthor\": \"Harper Lee\",\n    \"book_description\": \"A novel set in the American South during the 1930s that deals with racial injustice and moral growth.\",\n    \"bookDescription\": 1960,\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Book Not Found!\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Delete Book",
@@ -184,7 +716,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 3\n}",
+							"raw": "{\n    \"id\": 7\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -192,18 +724,97 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/book/2",
+							"raw": "localhost:8080/book/6",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"book",
-								"2"
+								"6"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Book Successfully Deleted!\",\n    \"data\": 1\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book",
+										"2"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Book Not Found!\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get All Book",
@@ -215,7 +826,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"id\": 3\n}",
+							"raw": "{\n    \"id\": 7\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -223,43 +834,206 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:8080/book/1",
+							"raw": "localhost:8080/book",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"book",
-								"1"
+								"book"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 7\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Book Successfully retrieved!\",\n    \"data\": {\n        \"id\": 1,\n        \"bookTitle\": \"The Great Gatsby\",\n        \"bookAuthor\": \"F. Scott Fitzgerald\",\n        \"bookDescription\": \"The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.\",\n        \"bookYear\": \"1925\"\n    }\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 7\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Book not found\"\n}"
+						}
+					]
 				},
 				{
 					"name": "Get Book by Id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 7\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
-							"raw": "localhost:8080/book/:id",
+							"raw": "localhost:8080/book/6",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
 								"book",
-								":id"
-							],
-							"variable": [
-								{
-									"key": "id",
-									"value": ""
-								}
+								"6"
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "200",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"success\",\n    \"message\": \"Book Successfully retrieved!\",\n    \"data\": {\n        \"id\": 1,\n        \"bookTitle\": \"The Great Gatsby\",\n        \"bookAuthor\": \"F. Scott Fitzgerald\",\n        \"bookDescription\": \"The story of the fabulously wealthy Jay Gatsby and his love for the beautiful Daisy Buchanan.\",\n        \"bookYear\": \"1925\"\n    }\n}"
+						},
+						{
+							"name": "404",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": 3\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/book/1",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"book",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json",
+									"name": "Content-Type",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"status\": \"error\",\n    \"message\": \"Book not found\"\n}"
+						}
+					]
 				}
 			]
 		}
